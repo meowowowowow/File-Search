@@ -19,6 +19,7 @@
 #include<QTextDocument>
 #include <QTextCursor>
 #include<fstream>
+#include<iostream>
 #include<QSettings>
 #include<Qdebug>
 #include<QTextCodec>

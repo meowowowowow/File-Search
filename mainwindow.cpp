@@ -98,6 +98,8 @@ QWidget* MainWindow::wdw(QString *str)
     y->addWidget(tx);
     tx->setText(*str);
     wdw->show();
+
+    return 0;
 }
 
 void MainWindow::on_listWidget_doubleClicked(const QModelIndex &index)
@@ -203,8 +205,9 @@ void MainWindow::on_pushButton_6_clicked()
            QTextCursor cursor=ui->textEdit->textCursor();
            cursor.setPosition(foundIndex);
            //设置光标
-           ui->textEdit->setTextCursor(cursor);
        }else{
+           QTextCursor cursor=ui->textEdit->textCursor();
+           ui->textEdit->setTextCursor(cursor);
            QMessageBox::information(this,"提示","未找到文本！");
        }
 }
@@ -235,7 +238,7 @@ bool MainWindow::createconfigfile()
         QTextStream out(&file);
         out.setCodec("UTF-8");
         out<<"index=";
-        out<<ui->comboBox->currentIndex()<<endl;  //写入combox索引
+        out<<ui->comboBox->currentIndex()<<Qt::endl;  //写入combox索引
 
 //        out<<"ddir=";
 //        out<<ui->lineEdit->text();
